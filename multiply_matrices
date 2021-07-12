@@ -1,0 +1,47 @@
+from  create_matrices import create_matrix
+def multiply_matrices(A, B):
+    number_of_raws_A= len(A)
+    number_of_columns_A= len(A[0])
+    number_of_clumns_B= len(B[0])
+    #C = create_matrix("filename.txt",(number_of_raws_A,number_of_clumns_B))
+    product=0
+    for i in range(number_of_raws_A):
+        for j in range(number_of_columns_A):
+            for l in range(number_of_clumns_B):
+                product += A[i][j]*B[j][l]
+                C[i][l] = product
+                product=0
+    write(C)
+
+def write(matrix):
+    with open("filename.txt", 'w') as f:
+        for row in matrix:
+            f.write(' '.join(map(lambda x: str(x), row)))
+            f.write('\n')
+            
+def  read_matrix_from_file(filename):
+    with open(filename) as file:
+        content=file.read
+        return content
+
+a= [
+    [1 ,2],
+    [2, 3 ] 
+     ]
+b= [
+    [1 ,2],
+    [2, 5]  
+     ]
+print(multiply_matrices(a,b ))
+
+
+
+
+         
+
+             
+             
+
+
+
+  
